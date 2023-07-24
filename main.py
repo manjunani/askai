@@ -37,7 +37,7 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     st.title("AskAI")
-    palm.configure(api_key="APIKEY")
+    palm.configure(api_key=st.secrets['API_KEY'])
     models = [m for m in palm.list_models(
     ) if 'generateText' in m.supported_generation_methods]
     model = models[0].name
